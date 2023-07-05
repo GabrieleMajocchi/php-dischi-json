@@ -27,11 +27,20 @@
             <div class="row p-5">
                 <div class="col-10 m-auto">
                     <div class="row diskcontainer">
-                        <div class="disk col-4 justify-content-center d-flex flex-column align-items-center" v-for="(disk, index) in items">
+                        <div class="disk col-4 justify-content-center d-flex flex-column align-items-center" v-for="(disk, index) in items"  @click="moreInfo(index)">
                             <img :src="disk.poster" :alt="disk.title" class="my-4">
                             <h4 class="m-0 fw-bold">{{ disk.title }}</h4>
                             <p class="m-0">{{ disk.author }}</p>
                             <p class="m-0 fw-bold mb-4">{{ disk.year }}</p>
+                        </div>
+                        <div class="info justify-content-center d-flex flex-column align-items-center" v-if="activeInfo">
+                            <div class="exit" @click="moreInfo()">
+                                X
+                            </div>
+                            <img :src="info.poster" :alt="info.title" class="my-4">
+                            <h4 class="m-0 fw-bold">{{ info.title }}</h4>
+                            <p class="m-0">{{ info.author }}</p>
+                            <p class="m-0 fw-bold mb-4">{{ info.year }}</p>
                         </div>
                     </div>
                 </div>
