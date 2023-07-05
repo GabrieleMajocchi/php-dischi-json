@@ -12,22 +12,28 @@
     <!-- ---Link to vue--- -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- ---Link to style--- -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <!-- ---Link to main js--- -->
     <script src="./script/main.js" defer></script>
 
 </head>
 <body>
-    
+
     <div id="app">
+        <header>
+            <img src="./logo.png" alt="Spotify Logo">
+        </header>
         <div class="container">
             <div class="row p-5">
-                <div class="col-12">
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="(disk, index) in items" :key="index">
-                            {{ disk.title }} {{ disk.author }} {{ disk.genre }} {{ disk.year }} {{disk.poster}}
-                        </li>
-                    </ul>
+                <div class="col-10 m-auto">
+                    <div class="row diskcontainer">
+                        <div class="disk col-4 justify-content-center d-flex flex-column align-items-center" v-for="(disk, index) in items">
+                            <img :src="disk.poster" :alt="disk.title" class="my-4">
+                            <h4 class="m-0 fw-bold">{{ disk.title }}</h4>
+                            <p class="m-0">{{ disk.author }}</p>
+                            <p class="m-0 fw-bold mb-4">{{ disk.year }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
