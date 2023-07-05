@@ -5,6 +5,8 @@ createApp({
         return {
                 apiUrl : './server.php',
                 items : [],
+                activeInfo: false,
+                info: '',
         }
     },
 
@@ -20,7 +22,13 @@ createApp({
             .catch(function (error) {
                 console.log(error);
             })
-        }
+        },
+        
+        moreInfo(index) {
+            this.activeInfo = !this.activeInfo;
+            this.info = this.items[index];
+        },
+
     },
 
     created() {
