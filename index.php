@@ -20,7 +20,17 @@
 <body>
     
     <div id="app">
-        
+        <div class="container">
+            <div class="row p-5">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="(disk, index) in items" :key="index">
+                            {{ disk.title }} {{ disk.author }} {{ disk.genre }} {{ disk.year }} {{disk.poster}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
